@@ -11,11 +11,23 @@ export const FoodContextProvider = ({ children }) => {
       payload: selectedValue,
     });
   };
+  const addReview = (id, review) => {
+    const updatedData = state.restaurantsList.map((data) =>
+      data.id === id ? { ...data, ratings: [review, ...data.ratings] } : data
+    );
+    dispatch({
+      type: actionTypes.ADD_REVIEW,
+      payload: updatedData,
+    });
+  };
   const filteredRestaurants = state.selectedCuisine
     ? state.restaurantsList.filter(
         ({ cuisine_id }) => cuisine_id === state.selectedCuisine
       )
     : state.restaurantsList;
+
+  const getRestaurantById = (resId) =>
+    state.restaurantsList.find(({ id }) => id === resId);
 
   return (
     <FoodContext.Provider
@@ -24,6 +36,8 @@ export const FoodContextProvider = ({ children }) => {
         filteredRestaurants,
         selectedCuisine: state.selectedCuisine,
         selectCuisine,
+        getRestaurantById,
+        addReview,
       }}
     >
       {children}
