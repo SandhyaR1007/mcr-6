@@ -9,7 +9,7 @@ import { FoodContextProvider } from "./context/FoodContext.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <FoodContextProvider>
-      <Router>
+      <Router basename="/">
         <App />
       </Router>
     </FoodContextProvider>
