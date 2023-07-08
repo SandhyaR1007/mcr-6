@@ -14,7 +14,7 @@ const MenuCard = ({ data, place }) => {
       <section className="h-1/3 px-3">
         <h3 className="text-lg font-semibold">{name}</h3>
         <p className="text-gray-600 text-sm">
-          {price} for {qty}
+          ₹{price} for {qty}
         </p>
         <p className="text-gray-600 text-sm">{place}</p>
       </section>
