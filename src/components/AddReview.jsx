@@ -58,6 +58,9 @@ const AddReview = ({ resId, showModal, setShowModal }) => {
               onChange={handleChange}
               value={review?.rating}
             >
+              <option value="" disabled>
+                Select
+              </option>
               {ratings.map((val) => (
                 <option value={val} key={val}>
                   {val}
