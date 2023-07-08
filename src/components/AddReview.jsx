@@ -2,7 +2,12 @@ import { Button, Modal } from "antd";
 import { useState } from "react";
 import { useFoodContext } from "../context/FoodContext";
 import { defaultImg, ratings } from "../utils/constants";
-const AddReview = ({ resId, showModal, setShowModal }) => {
+const AddReview = ({
+  resId,
+  showModal,
+  setShowModal,
+  setSelectedMenuOption,
+}) => {
   const { addReview } = useFoodContext();
   const [review, setReview] = useState({
     revName: "Anonymous",
@@ -20,6 +25,7 @@ const AddReview = ({ resId, showModal, setShowModal }) => {
       rating: "",
     });
     setShowModal(false);
+    setSelectedMenuOption("reviews");
   };
   const handleClose = () => {
     setReview({
